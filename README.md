@@ -18,16 +18,7 @@ Then run setup script:
 
   
   Optional argumens:
-  
-     ./deploy.py -h
-     usage: ./deploy.py [-h] [--origin ORIGIN] [--dest DEST]
-                   [--source_cache SOURCE_CACHE] [--install_tree INSTALL_TREE]
-                   [--install_path_scheme INSTALL_PATH_SCHEME]
-                   [--naming_scheme NAMING_SCHEME]
 
-Deploy spack
-
-    optional arguments:
       -h, --help            show this help message and exit
       --origin ORIGIN       URL of the origin git repo being cloned. (default:
                         https://github.com/LLNL/spack.git)
