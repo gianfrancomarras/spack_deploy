@@ -22,7 +22,7 @@ modules:
       environment:
         set:
           '${PACKAGE}_HOME': '${PREFIX}'
-    naming_scheme:  '${PACKAGE}/${VERSION}-${COMPILERNAME}-${COMPILERVER}'
+    naming_scheme:  '${SPACK_naming_scheme}'
   prefix_inspections:
     bin:
       - PATH

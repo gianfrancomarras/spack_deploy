@@ -20,7 +20,7 @@ def default_arg(descr):
         
     parser.add_argument('--dest', #default=argparse.SUPPRESS,
                         help="Directory to clone into.  If ends in slash, place into that directory; otherwise, place into subdirectory named after the URL",
-                        default=path_join(os.getcwd(), "SPACK"))
+                        default=path_join(os.getcwd(), "spack"))
         
     parser.add_argument('--source_cache', action = 'store',
                          help='Cache directory',
@@ -28,11 +28,16 @@ def default_arg(descr):
     
     parser.add_argument('--install_tree', action = 'store',
                          help='Install dir',
-                         default='$spack/opt/spack')
+                         default='$spack/../install')
     
     parser.add_argument('--install_path_scheme', action = 'store',
                          help='Install path scheme',
                          default='${ARCHITECTURE}/${COMPILERNAME}-${COMPILERVER}/${PACKAGE}/${VERSION}/${HASH}')
+    
+    parser.add_argument('--naming_scheme', action = 'store',
+                         help='Naming scheme of modules',
+                         default='${PACKAGE}/${VERSION}-${COMPILERNAME}-${COMPILERVER}')
+    
     
     return parser
 
