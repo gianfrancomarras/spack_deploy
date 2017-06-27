@@ -16,7 +16,6 @@
 modules:
   enable:
     - tcl
-    - dotkit
   tcl:
     hash_length: 2
     all:

@@ -16,8 +16,8 @@
 config:
   # This is the path to the root of the Spack install tree.
   # You can use $spack here to refer to the root of the spack instance.
-  install_path_scheme: '${ARCHITECTURE}/${COMPILERNAME}-${COMPILERVER}/${PACKAGE}/${VERSION}/${HASH}'
-  install_tree: $spack/opt/spack  
+  install_tree: ${SPACK_install_tree}  
+  install_path_scheme: '${SPACK_install_path_scheme}'
 
 
   # Locations where different types of modules should be installed.
@@ -46,7 +46,7 @@ config:
 
   # Cache directory already downloaded source tarballs and archived
   # repositories. This can be purged with `spack purge --downloads`.
-  source_cache: $spack/../cache
+  source_cache: ${SPACK_source_cache}
 
 
   # Cache directory for miscellaneous files, like the package index.
