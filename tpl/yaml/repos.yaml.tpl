@@ -1,2 +1,2 @@
 repos:
-- $spack/var/spack/repos/cineca
+  - $spack/var/spack/repos/cineca
