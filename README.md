@@ -17,7 +17,7 @@ Then run setup script:
 
 
   
-  Optional argumens:
+  Optional arguments:
 
       -h, --help            show this help message and exit
       --origin ORIGIN       URL of the origin git repo being cloned. (default:
