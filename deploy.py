@@ -13,16 +13,17 @@ def main():
     install_tree = args.install_tree
     install_path_scheme = args.install_path_scheme
     naming_scheme = args.naming_scheme
+    repo = args.repo
     
     dict_tpl = {"SPACK_install_tree" : install_tree,
                "SPACK_install_path_scheme": install_path_scheme,
                "SPACK_source_cache": source_cache,
                "SPACK_naming_scheme": naming_scheme}
     
-    
+  # TPL  
     if not os.path.isdir(main_path):
         if not execute([ "git",  "clone",  args.origin, main_path]):
-            for _file  in ["config", "modules", "packages"]:
+            for _file  in ["config", "modules", "packages", "repos"]:
                 subst_file(path_join("tpl", "yaml", "{}.yaml.tpl".format(_file)),
                        path_join(main_path, "etc", "spack", "{}.yaml".format(_file)), 
                        dict_tpl)
@@ -32,6 +33,10 @@ def main():
     else:
         lm_logger.error("First remove directory {}!!!".format(main_path))
         sys.exit(1)
+        
+        
+# REPOS CINECA
+    mkdir(path_join(main_path, "var", "spack",repo)
 
 
 if __name__ == "__main__":

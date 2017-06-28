@@ -21,6 +21,10 @@ def default_arg(descr):
     parser.add_argument('--dest', #default=argparse.SUPPRESS,
                         help="Directory to clone into.  If ends in slash, place into that directory; otherwise, place into subdirectory named after the URL",
                         default=path_join(os.getcwd(), "spack"))
+    
+    parser.add_argument('--repo', #default=argparse.SUPPRESS,
+                        help="Add repository",
+                        default="cineca"))
         
     parser.add_argument('--source_cache', action = 'store',
                          help='Cache directory',
@@ -130,6 +134,15 @@ def execute(command_line, exe_output = None, activeline = False):
     else:
         lm_logger.info("(OK) <<< : {0}".format(str_command_line))
     return returncode
+
+
+def mkdir(workdir):
+    lm_logger = NOTIFY_LOGGER       
+    if not os.path.isdir(workdir):
+        lm_logger.info("mkdir {0} (RUN...)".format(workdir))
+        os.makedirs(workdir)
+        lm_logger.info("(OK) <<< mkdir {0}".format(workdir))
+    return 0
 
 
 def create_formatter():
