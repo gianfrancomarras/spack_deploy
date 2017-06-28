@@ -145,6 +145,10 @@ def mkdir(workdir):
     return 0
 
 
+def copy(source, target):
+    shutil.copy(source, target)
+    
+
 def create_formatter():
     return logging.Formatter('%(asctime)s: %(name)s: %(levelname) -4s: %(message)s', datefmt=REPORT_FORMAT)
 

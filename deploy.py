@@ -36,7 +36,9 @@ def main():
         
         
 # REPOS CINECA
-    mkdir(path_join(main_path, "var", "spack",repo)
+    repo_path = path_join(main_path, "var", "spack","repos", repo, "packages")
+    mkdir(path_join(main_path, "var", "spack","repos", repo, "packages"))
+    cp(path_join("repo_cineca", "packages", "hpc-cineca", "package.py"), path_join(repo_path, "package.py")
 
 
 if __name__ == "__main__":
