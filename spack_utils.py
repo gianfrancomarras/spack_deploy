@@ -24,7 +24,7 @@ def default_arg(descr):
     
     parser.add_argument('--repo', #default=argparse.SUPPRESS,
                         help="Add repository",
-                        default="cineca"))
+                        default="cineca")
         
     parser.add_argument('--source_cache', action = 'store',
                          help='Cache directory',
