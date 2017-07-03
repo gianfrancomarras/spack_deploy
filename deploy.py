@@ -37,8 +37,9 @@ def main():
         
 # REPOS CINECA
     repo_path = path_join(main_path, "var", "spack","repos", repo)
-    mkdir(path_join(main_path, "var", "spack","repos", repo, "packages"))
-    copy(path_join("repo_cineca", "packages", "hpc-cineca", "package.py"), path_join(repo_path, "packages", "package.py"))
+    mkdir(path_join(repo_path, "packages", "hpc-cineca"))
+    copy(path_join("repo_cineca", "packages", "hpc-cineca", "package.py"), 
+         path_join(repo_path, "packages", "hpc-cineca", "package.py"))
     copy(path_join("repo_cineca", "repo.yaml"), path_join(repo_path, "repo.yaml"))
 
 

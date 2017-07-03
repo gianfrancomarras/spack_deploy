@@ -17,7 +17,6 @@ modules:
   enable:
     - tcl
   tcl:
-    blacklist:["hpc-cineca"]
     hash_length: 2
     all:
       environment:

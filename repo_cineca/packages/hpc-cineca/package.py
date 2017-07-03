@@ -47,12 +47,40 @@ class HpcCineca(Package):
     homepage = "http://www.cineca.it"
     url      = "http://www.example.com/example-1.2.3.tar.gz"
 
-    # FIXME: Add proper versions and checksums here.
+
     version('0.1')
 
-    # FIXME: Add dependencies if required.
-    depends_on('gcc')
-    depends_on('python')
-    depends_on('cmake')
+    variant('python', default=True, description='Enables python')
+    depends_on('python', when='+python')
+    
+    variant('py-numpy', default=True,  description='Enables py-numpy')
+    depends_on('py-numpy' , when='+py-numpy')
+    
+    variant('cmake', default=True,  description='Enables cmake')
+    depends_on('cmake' , when='+cmake')
+        
+    #variant('ncview', default=True,  description='Enables ncview')
+    #depends_on('ncview' , when='+ncview')
+
+    variant('valgrind', default=True,  description='Enables valgrind')
+    depends_on('valgrind' , when='+valgrind')
+    
+    #variant('nco', default=True,  description='Enables nco')
+    #depends_on('nco' , when='+nco')
+    
+    variant('bzip2', default=True,  description='Enables bzip2')
+    depends_on('bzip2' , when='+bzip2')
+    
+    
+    variant('zlib', default=True,  description='Enables zlib')
+    depends_on('zlib' , when='+zlib')    
+    
+    variant('szip', default=True,  description='Enables szip')
+    depends_on('szip' , when='+szip')
+    
+    variant('gnuplot', default=True,  description='Enables gnuplot')
+    depends_on('gnuplot' , when='+gnuplot')
+    
+    
 
 
