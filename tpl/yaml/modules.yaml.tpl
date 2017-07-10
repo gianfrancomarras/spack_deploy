@@ -17,12 +17,14 @@ modules:
   enable:
     - tcl
   tcl:
+    blacklist: ['hpc-cineca']
     hash_length: 2
     all:
       environment:
         set:
           '${PACKAGE}_HOME': '${PREFIX}'
     naming_scheme:  '${SPACK_naming_scheme}'
+    
   prefix_inspections:
     bin:
       - PATH

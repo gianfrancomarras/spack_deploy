@@ -39,6 +39,7 @@ config:
   #
   # The build stage can be purged with `spack purge --stage`.
   build_stage:
+    - ${SPACK_scratch}
     - /dev/shm/$user
     - /scratch_local/$user
     - $tempdir

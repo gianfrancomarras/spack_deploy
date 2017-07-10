@@ -12,6 +12,7 @@ REPORT_FORMAT = "%Y%m%d-%H:%M:%S"
 path_join = os.path.join
 
 def default_arg(descr):
+    _scratch = os.environ["CINECA_SCRATCH"]
     parser = argparse.ArgumentParser(prog=sys.argv[0], description=descr,
                         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
         
@@ -31,6 +32,10 @@ def default_arg(descr):
                          help='Cache directory',
                          default='$spack/../cache')
     
+    parser.add_argument('--build_dir', action = 'store',
+                         help='Build directory',
+                         default='{}/build_stage'.format(_scratch))
+    
     parser.add_argument('--install_tree', action = 'store',
                          help='Install dir',
                          default='$spack/../install')
@@ -42,6 +47,10 @@ def default_arg(descr):
     parser.add_argument('--naming_scheme', action = 'store',
                          help='Naming scheme of modules',
                          default='${PACKAGE}/${VERSION}-${COMPILERNAME}-${COMPILERVER}')
+    
+    
+    parser.add_argument('--skip_clone', action='store_true',
+                        help='Skip clone from git' )
     
     
     return parser
@@ -147,7 +156,18 @@ def mkdir(workdir):
 
 
 def copy(source, target):
+    lm_logger = NOTIFY_LOGGER       
+    lm_logger.info("copy {0} --> {1} (RUN...)".format(source, target))
     shutil.copy(source, target)
+    lm_logger.info("(OK) copy {0} --> {1}".format(source, target))
+    
+def rm(source):
+    lm_logger = NOTIFY_LOGGER       
+    lm_logger.info("removing file {0} (RUN...)".format(source))
+    if os.path.isfile(source):
+        os.remove(source)
+    lm_logger.info("(OK) <<< removing file {0})".format(source))
+    return 0
     
 
 def create_formatter():
@@ -177,7 +197,7 @@ ROOT_HANDLER, ROOT_LOGGER, NOTIFY_HANDLER, NOTIFY_LOGGER = create_base_loggers()
 def subst_file(source_filename, target_filename, dct):
     """ Create file from to template file """    
     lm_logger = NOTIFY_LOGGER
-    print(dct)
+    
     lm_logger.info("substituting template {0} -> {1} (RUN...)".format(source_filename, target_filename))
     dirname = os.path.abspath(os.path.dirname(target_filename))
     if not os.path.isdir(dirname):

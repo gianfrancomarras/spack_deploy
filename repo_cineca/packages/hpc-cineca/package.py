@@ -70,8 +70,7 @@ class HpcCineca(Package):
     
     variant('bzip2', default=True,  description='Enables bzip2')
     depends_on('bzip2' , when='+bzip2')
-    
-    
+        
     variant('zlib', default=True,  description='Enables zlib')
     depends_on('zlib' , when='+zlib')    
     
@@ -81,6 +80,12 @@ class HpcCineca(Package):
     variant('gnuplot', default=True,  description='Enables gnuplot')
     depends_on('gnuplot' , when='+gnuplot')
     
+    variant('autoconf', default=True,  description='Enables autoconf')
+    depends_on('autoconf' , when='+autoconf')
+
+    variant('automake', default=True,  description='Enables automake')
+    depends_on('automake' , when='+automake')
+
     
 
 
