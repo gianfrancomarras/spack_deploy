@@ -12,7 +12,11 @@ REPORT_FORMAT = "%Y%m%d-%H:%M:%S"
 path_join = os.path.join
 
 def default_arg(descr):
-    _scratch = os.environ["CINECA_SCRATCH"]
+    try:
+        _scratch = os.environ["CINECA_SCRATCH"]
+    except:
+        _scratch = os.environ["HOME"]
+        
     parser = argparse.ArgumentParser(prog=sys.argv[0], description=descr,
                         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
         

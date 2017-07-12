@@ -23,6 +23,11 @@ modules:
       environment:
         set:
           '${PACKAGE}_HOME': '${PREFIX}'
+      suffixes:
+         '^openmpi': openmpi
+         '^mpich': mpich
+      conflict:
+        - '${PACKAGE}'
     naming_scheme:  '${SPACK_naming_scheme}'
     
   prefix_inspections:
