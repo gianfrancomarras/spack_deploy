@@ -48,6 +48,10 @@ def default_arg(descr):
                          help='Install path scheme',
                          default='${ARCHITECTURE}/${COMPILERNAME}-${COMPILERVER}/${PACKAGE}/${VERSION}/${HASH}')
     
+    parser.add_argument('--module_root_tcl', action = 'store',
+                         help='module tcl directory',
+                         default='$spack/../module')
+
     parser.add_argument('--naming_scheme', action = 'store',
                          help='Naming scheme of modules',
                          default='${PACKAGE}/${VERSION}-${COMPILERNAME}-${COMPILERVER}')

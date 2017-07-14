@@ -15,12 +15,14 @@ def main():
     naming_scheme = args.naming_scheme
     scratch = args.build_dir
     repo = args.repo
+    module_root_tcl = args.module_root_tcl
     
     dict_tpl = {"SPACK_install_tree" : install_tree,
                "SPACK_install_path_scheme": install_path_scheme,
                "SPACK_source_cache": source_cache,
                "SPACK_naming_scheme": naming_scheme,
-               "SPACK_scratch": scratch}
+               "SPACK_scratch": scratch,
+               "SPACK_module_root_tcl": module_root_tcl}
     
   # TPL  
     if not os.path.isdir(main_path) or args.skip_clone:

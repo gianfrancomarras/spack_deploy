@@ -22,7 +22,7 @@ config:
 
   # Locations where different types of modules should be installed.
   module_roots:
-    tcl:    $spack/share/spack/modules
+    tcl:    ${SPACK_module_root_tcl}
     lmod:   $spack/share/spack/lmod
     dotkit: $spack/share/spack/dotkit
 
