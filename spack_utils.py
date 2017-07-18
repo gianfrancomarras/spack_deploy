@@ -54,7 +54,7 @@ def default_arg(descr):
 
     parser.add_argument('--naming_scheme', action = 'store',
                          help='Naming scheme of modules',
-                         default='${PACKAGE}/${VERSION}-${COMPILERNAME}-${COMPILERVER}')
+                         default='${PACKAGE}/${VERSION}--${COMPILERNAME}--${COMPILERVER}')
     
     
     parser.add_argument('--skip_clone', action='store_true',
